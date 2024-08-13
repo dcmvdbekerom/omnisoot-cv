@@ -3,10 +3,14 @@ import pandas as pd
 from simulate_flowreactor import simulate_flowreactor
 from plot import plot
 
-PAH_growth_model_types = ["ReactiveDimerization", "DimerCoalescence" ,"EBridgeModified", "IrreversibleDimerization"];
-particle_dynamics_model_types = ["Monodisperse", "Sectional"];
-df = pd.read_csv("./data/temperature_profile.csv");
-TemperatureProfile = namedtuple("TemperatureProfile",["z","T"]);
+PAH_growth_model_types = ["ReactiveDimerization", 
+                          "DimerCoalescence" ,
+                          "EBridgeModified", 
+                          "IrreversibleDimerization"]
+
+particle_dynamics_model_types = ["Monodisperse", "Sectional"]
+df = pd.read_csv("./data/temperature_profile.csv")
+TemperatureProfile = namedtuple("TemperatureProfile",["z","T"])
 temperature_profile = TemperatureProfile(z = df["z[cm]"].to_numpy(), T = df["T[K]"].to_numpy());
 
 arg_dict = dict(
